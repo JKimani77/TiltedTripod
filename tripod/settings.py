@@ -78,6 +78,7 @@ WSGI_APPLICATION = 'tripod.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
+        'PORT': '1234',
         'NAME': 'tripod',
         'USER':'postgres',
         'PASSWORD':'Ivonne1236987'
