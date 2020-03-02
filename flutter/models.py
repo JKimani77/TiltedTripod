@@ -10,10 +10,10 @@ class Tags(models.Model):
     def delete_tag(self):
         self.delete()
 
-    @classmethod
-    def get_tag_by_ID(cls, id):
-        cat = Tags.objects.get(pk=id)
-        return cat
+    # @classmethod
+    # def get_tag_by_ID(cls, id):
+    #     cat = Tags.objects.get(pk=id)
+    #     return cat
     
     def update_tag(self, updated_category):
         self.image_category = updated_category
@@ -39,10 +39,22 @@ class Image(models.Model):
     # def get_image_by_id(cls, id):
     #     image = cls.objects.filter(id=id).all()
     #     return image
-        
+
+    @classmethod
+    def get_images(cls):
+        all_images = cls.objects.all()
+        return all_images 
+
     def update_image(self,image_name, image_description):
         self.image_name = image_name
         self.image_description = image_description
         self.save()
+
+    @classmethod
+    def search_by_tag(cls, search_word):
+        images = cls.objects.filter(category__image_category__icontains=search_word)
+        return images
+
+    
     
     
