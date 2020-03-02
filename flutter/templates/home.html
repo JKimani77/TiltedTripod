@@ -2,21 +2,17 @@
 
 
 {%block content %}
-<div class="containerone">
-  <nav class="black">
-    
-    <div class="nav-wrapper">
-      {%for location in locations%}
-      <ul id="nav-mobile"class="right" >
-        <li><a href="filter/{{location.id}}">{{location.image_location}}</a></li>
-      </ul>
-      {%endfor%}
-    </div>
-    
-  </nav>
+<div class="container">
+  <div class="nav-wrapper">
+    {%for location in locations%}
+    <ul id="nav-mobile"class="right" >
+      <li><a href="filter/{{location.id}}">{{location.image_location}}</a></li>
+    </ul>
+    {%endfor%}
+  </div>
 <div class="jumbotron">
 <div class="header">
-<h1 textalign="center">WELCOME TO THE TILTED TRIPOD</h1>
+<h1 style="text-align: center;"><ul>THE TILTED TRIPOD</ul></h1>
 </div>
 </div>
 <div class="container">
