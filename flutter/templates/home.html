@@ -11,32 +11,34 @@
   </div> -->
 <div class="jumbotron">
 <div class="header">
-<h1  style="color: rgb(25, 148, 219);"><ul>THE TILTED TRIPOD</ul></h1>
+<h1  style="color: rgb(29, 182, 144);"><ul>THE TILTED TRIPOD</ul></h1>
 </div>
 </div>
 <div class="container">
 
-<div class="row">
-  {%for pic in images %}
-    <div class="column">
-      <a data-target= "{{pic.id}}" class="modal-trigger" href="{{pic.id}}" >
-      <img alt="IMAGE" src="{{pic.image.url}}">
-      </a>
-    </div>
-    
-    <div id="{{pic.id}}" class="modal">
+  <div class="row">
+    {%for pic in images %}
       <div class="modal-content">
-        <h4>{{pic.image_name}}</h4>
-        <p>{{pic.image_description}}</p>
-        <a href="/image/{{pic.id}}"><img src="{{pic.image.url}}" width="40%"><a>
+        <a data-target= "{{pic.id}}" class="modal-trigger" href="{{pic.image_name}}" >
+        <img alt="IMAGE" src="{{pic.image.url}}" width="900px" style="align-items: center;">
+        </a>
       </div>
-
-      <div class="modal-footer left-align">
-        <input hidden type="text" value="127.0.0.1:8000{{img.image.url}}" id="myInput">
-        <button class="btn btn-default" onclick="myFunction('127.0.0.1:8000{{img.image.url}}')">Copy link</button>
-      </div>
+    
+      <div id="{{pic.id}}" class="modal">
+        <div class="modal-content">
+          <h4>{{pic.image_name}}</h4>
+          <p>{{pic.image_description}}</p>
+          <a href="/image/{{pic.id}}"><img src="{{pic.image.url}}" ><a>
+        </div>
   
+        <div class="modal-footer left-align">
+          <input hidden type="text" value="127.0.0.1:8000{{img.image.url}}" id="myInput">
+          <button class="btn btn-default" onclick="myFunction('127.0.0.1:8000{{pic.image.url}}')">Copy link</button>
+        </div>
+    
+      </div>
     </div>
+
   {%endfor%}
 </div>
 </div>

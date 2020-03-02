@@ -24,9 +24,9 @@ class Meta:
 
 class Image(models.Model):
     image_name = models.CharField(max_length=30)
-    image_description = models.CharField(max_length=30)
+    image_description = models.CharField(max_length=300)
     image = models.ImageField(upload_to='gallery/', blank=True)
-    category = models.ForeignKey(Tags, on_delete=models.CASCADE)
+    category = models.ForeignKey(Tags, on_delete=models.CASCADE, blank=True)
     # location = models.ForeignKey(Location, on_delete=models.CASCADE)
 
     def save_image(self):
