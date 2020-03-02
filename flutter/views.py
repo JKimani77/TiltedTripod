@@ -11,7 +11,7 @@ def index(request):
 def search_image(request):
     if 'image' in request.GET and request.GET['image']:
         search_word = request.GET.get('image')
-        search = Image.search_by_tag(search_word)
+        search = Image.search_by_imagename(search_word)
         wurd =f"{search_word}"
         return render(request, 'search.html',{"wurd":wurd, "images":search})
     
