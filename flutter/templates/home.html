@@ -11,31 +11,49 @@
   </div> -->
 <div class="jumbotron">
 <div class="header">
-<h1  style="color: rgb(29, 182, 144);"><ul>THE TILTED TRIPOD</ul></h1>
+<h1  style="color: rgb(29, 182, 144);"><ul style="text-align: center;">THE TILTED TRIPOD</ul></h1>
+<p style="color: rgb(29, 182, 144) ;"  > <li style="text-align: center;">The categories available are: PEOPLE, FOOD, VEHICLE and Other... don't forget to match the case!</li> </p>
 </div>
 </div>
 <div class="container">
 
   <div class="row">
     {%for pic in images %}
-      <div class="modal-content">
+
+    <br>
+      <div class="row h-100 justify-content-center align-items-center">
         <a data-target= "{{pic.id}}" class="modal-trigger" href="{{pic.image_name}}" >
-        <img alt="IMAGE" src="{{pic.image.url}}" width="900px" style="align-items: center;">
+        <img alt="IMAGE" class="img-responsive" src="{{pic.image.url}}" width="900px" style="align-items: center;">
         </a>
       </div>
     
-      <div id="{{pic.id}}" class="modal">
+        <!-- Modal -->
+    <div class="modal fade" id="{{pic.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-          <h4>{{pic.image_name}}</h4>
-          <p>{{pic.image_description}}</p>
-          <a href="/image/{{pic.id}}"><img src="{{pic.image.url}}" ><a>
+          <div class="modal-header">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+            <h5 class="modal-title">{{ pic.image_name }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <img src="{{pic.image.url}}" class="img-responsive" alt="image" width="500px">
+              <br>
+              <p class="modal-title" > <legend>Description</legend>{{ pic.image_description }}</p>
+              <!-- <br>
+              <p class="modal-title" > <legend>Location</legend>{{ image.location }}</p>
+              <br> -->
+              <p class="modal-title" > <legend>Category</legend>{{pic.tags.name }}</p>
+          </div>
+          <div class="modal-footer">
+              <div class="modal-footer">
+                  <input class="form-control" type="text" value= {{image.article_image.url}}   id="link">
+                  <a onclick="myFunction()"><button type="button"  class="btn btn-primary">Copy Link</button></a>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+          </div>
         </div>
-  
-        <div class="modal-footer left-align">
-          <input hidden type="text" value="127.0.0.1:8000{{img.image.url}}" id="myInput">
-          <button class="btn btn-default" onclick="myFunction('127.0.0.1:8000{{pic.image.url}}')">Copy link</button>
-        </div>
-    
       </div>
     </div>
 

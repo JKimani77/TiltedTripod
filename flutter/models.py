@@ -10,14 +10,11 @@ class Tags(models.Model):
     def delete_tag(self):
         self.delete()
 
-    # @classmethod
-    # def get_tag_by_ID(cls, id):
-    #     cat = Tags.objects.get(pk=id)
-    #     return cat
-    
     def update_tag(self, updated_category):
         self.image_category = updated_category
         self.save()
+
+    
 
 class Meta:
         ordering =['name']
@@ -35,15 +32,16 @@ class Image(models.Model):
     def delete_image(self):
         self.delete()
 
+    @classmethod
+    def search_by_tag(cls, search_word):
+        images = cls.objects.filter(category__name__icontains=search_word)
+        return images
+
     @classmethod  
     def get_image_by_id(cls, id):
         image = cls.objects.filter(id=id).all()
         return image
 
-    @classmethod
-    def search_by_imagename(cls, search_word):
-        images = cls.objects.filter(image_name__icontains=search_word)
-        return images
 
     @classmethod
     def get_images(cls):
