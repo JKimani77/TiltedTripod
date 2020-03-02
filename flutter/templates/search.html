@@ -1,0 +1,40 @@
+{%extends 'index.html'%}
+{%block content%}
+<nav class="black">
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li textalign="center"><a  href="/">Home</a></li>
+      </ul>
+    </div>
+  </nav> 
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+
+            {% if images%}
+      <h2>Found {{ images|length }} of {{message}}</h2>
+    {% else %}
+      <h2> No images found {{message}}</h2>
+    {% endif %}
+        </div>
+
+    </div>
+
+    <div class="row">
+        {%if images %}
+        <div class="col col-md-3">
+            {% for pic in images %}
+      <div class="col-sm-6 col-md-3">
+          <h3>{{pic.image_name}}</h3>
+          <img src="{{img.image.url}}">
+      </div>
+    {% endfor %}
+  {% endif %}
+        </div>
+        
+    </div>
+
+
+</div>
+
+{%endblock%}
