@@ -35,10 +35,15 @@ class Image(models.Model):
     def delete_image(self):
         self.delete()
 
-    # @classmethod  
-    # def get_image_by_id(cls, id):
-    #     image = cls.objects.filter(id=id).all()
-    #     return image
+    @classmethod  
+    def get_image_by_id(cls, id):
+        image = cls.objects.filter(id=id).all()
+        return image
+
+    @classmethod
+    def search_by_tag(cls, search_word):
+        images = cls.objects.filter(category__image_category__icontains=search_word)
+        return images
 
     @classmethod
     def get_images(cls):
@@ -50,10 +55,7 @@ class Image(models.Model):
         self.image_description = image_description
         self.save()
 
-    @classmethod
-    def search_by_tag(cls, search_word):
-        images = cls.objects.filter(category__image_category__icontains=search_word)
-        return images
+    
 
     
     
