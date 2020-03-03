@@ -54,6 +54,6 @@ As a user I would like:
 
 
 
-### License under [***MIT***]()
+### License under [***MIT***](https://github.com/JKimani77/TiltedTripod/blob/master/LICENSE)
 
 Copyright (C) 2020 ~ J.Kimani
