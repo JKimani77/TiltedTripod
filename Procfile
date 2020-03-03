@@ -1,1 +1,1 @@
-web: gunicorn flipgram.wsgi --log-file -
+web: gunicorn tripod.wsgi --log-file -
